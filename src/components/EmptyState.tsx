@@ -4,9 +4,6 @@ export default function EmptyState() {
       <div className="text-lg font-medium">
         موردی پیدا نشد
       </div>
-      <div className="mt-2 text-sm">
-        نتایج جستجو یا فیلترها خالی هستند
-      </div>
     </div>
   );
 }

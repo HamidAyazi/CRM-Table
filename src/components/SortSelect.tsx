@@ -14,7 +14,7 @@ export default function SortSelect({
       onChange={(e) =>
         onChange(e.target.value as SortOption)
       }
-      className="rounded-md border px-3 py-2 text-sm"
+      className="rounded-md border px-3 py-2 text-sm outline-none"
     >
       <option value="date_desc">جدیدترین</option>
       <option value="date_asc">قدیمی‌ترین</option>

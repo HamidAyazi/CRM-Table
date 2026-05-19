@@ -22,7 +22,7 @@ export default function OrderTable({ orders, onEdit }: Props) {
   return (
     <div className="overflow-x-auto rounded-lg border">
       <table className="min-w-full table-fixed text-sm">
-        <thead className="bg-gray-100">
+        <thead className="bg-gray-100 h-[60px]">
           <tr>
             <th scope="col" className="w-[140px] px-4 py-3 text-center">
               شماره سفارش
@@ -51,7 +51,7 @@ export default function OrderTable({ orders, onEdit }: Props) {
 
         <tbody>
           {orders.map((order) => (
-            <tr key={order.id} className="border-t hover:bg-gray-50">
+            <tr key={order.id} className="border-t hover:bg-gray-200 odd:bg-gray-100 even:bg-white">
               <td className="px-4 py-3">{order.id}</td>
 
               <td className="px-4 py-3">{order.customerName}</td>

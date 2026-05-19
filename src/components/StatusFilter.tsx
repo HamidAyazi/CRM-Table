@@ -15,7 +15,7 @@ export default function StatusFilter({
       onChange={(e) =>
         onChange(e.target.value as OrderStatus | "all")
       }
-      className="rounded-md border px-3 py-2 text-sm"
+      className="rounded-md border px-3 py-2 text-sm outline-none"
     >
       <option value="all">همه وضعیت‌ها</option>
       <option value="pending">در انتظار</option>
