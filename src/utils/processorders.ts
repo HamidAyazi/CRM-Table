@@ -1,4 +1,5 @@
 import type { Order, OrdersFilters } from "../types/orderTypes";
+import { normalizeText } from "./normalizeText";
 
 export function processOrders(
   orders: Order[],
@@ -8,13 +9,12 @@ export function processOrders(
 
   // search
   if (filters.search.trim()) {
-    const search = filters.search.toLowerCase();
-
-    result = result.filter(
-      (o) =>
-        o.customerName.toLowerCase().includes(search) ||
-        o.id.toLowerCase().includes(search),
-    );
+    const search = normalizeText(filters.search);
+    result = result.filter((o) => {
+      const id = normalizeText(o.id);
+      const name = normalizeText(o.customerName);
+      return id.includes(search) || name.includes(search);
+    });
   }
 
   // filter
