@@ -1,4 +1,5 @@
 import type { Order, OrderStatus } from "../types/orderTypes";
+import { formatDate } from "../utils/formatDate";
 
 interface Props {
   orders: Order[];
@@ -71,8 +72,18 @@ export default function OrderTable({ orders, onEdit }: Props) {
               </td>
 
               <td className="px-4 py-3">
-                {new Date(order.createdAt).toLocaleDateString("fa-IR")}
+                {(() => {
+                  const formatted = formatDate(order.createdAt);
+
+                  return (
+                    <div className="flex flex-col leading-5">
+                      <span>{formatted.date}</span>
+                      <span>{formatted.time}</span>
+                    </div>
+                  );
+                })()}
               </td>
+              
               <td className="px-4 py-3">
                 <button
                   onClick={() => onEdit(order)}
