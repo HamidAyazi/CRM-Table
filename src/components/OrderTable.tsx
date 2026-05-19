@@ -1,4 +1,4 @@
-import type { Order, OrderStatus } from "../types/orders";
+import type { Order, OrderStatus } from "../types/orderTypes";
 
 interface Props {
   orders: Order[];

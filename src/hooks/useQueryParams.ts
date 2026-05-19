@@ -1,7 +1,6 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import type { OrdersFilters, SortOption } from "../types/ordersFilters";
-import type { OrderStatus } from "../types/orders";
+import type { OrderStatus, OrdersFilters, SortOption } from "../types/orderTypes";
 
 export function useQueryParams() {
   const [searchParams, setSearchParams] = useSearchParams();
