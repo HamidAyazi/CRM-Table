@@ -18,36 +18,33 @@ const statusStyles: Record<OrderStatus, string> = {
 };
 
 export default function OrderTable({ orders, onEdit }: Props) {
-  if (orders.length === 0) {
-    return <div className="p-4 text-center">هیچ سفارشی وجود ندارد</div>;
-  }
   return (
     <div className="overflow-x-auto rounded-lg border">
-      <table className="min-w-full text-sm" role="table">
+      <table className="min-w-full table-fixed text-sm">
         <thead className="bg-gray-100">
           <tr>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[140px] px-4 py-3 text-center">
               شماره سفارش
             </th>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[160px] px-4 py-3 text-center">
               مشتری
             </th>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[140px] px-4 py-3 text-center">
               محصول
             </th>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[60px] px-4 py-3 text-center">
               تعداد
             </th>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[160px] px-4 py-3 text-center">
               مبلغ
             </th>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[140px] px-4 py-3 text-center">
               وضعیت
             </th>
-            <th scope="col" className="px-4 py-3 text-center">
+            <th scope="col" className="w-[100px] px-4 py-3 text-center">
               تاریخ
             </th>
-            <th className="px-4 py-3 text-center">عملیات</th>
+            <th className="w-[140px] px-4 py-3 text-center">عملیات</th>
           </tr>
         </thead>
 

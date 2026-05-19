@@ -27,7 +27,7 @@ export default function OrdersPage() {
       <h1 className="mb-6 text-2xl font-bold">مدیریت سفارش‌ها</h1>
 
       {/* seach field */}
-      <div className="mb-4 flex flex-col gap-3 md:flex-row">
+      <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center">
         <SearchInput
           value={filters.search}
           onChange={(value) =>

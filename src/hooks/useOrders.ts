@@ -23,7 +23,7 @@ export function useOrders() {
         setError("خطا در دریافت سفارش‌ها");
         setLoading(false);
       }
-    }, 600);
+    }, 5600);
 
     return () => clearTimeout(timer);
   }, []);

@@ -2,7 +2,7 @@ import type { Order } from "../types/orderTypes";
 
 export const mockOrders: Order[] = [
   {
-    id: "ORD-1001",
+    id: "101001",
     customerName: "علی احمدی",
     productName: "تیشرت مشکی",
     quantity: 2,
@@ -11,7 +11,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_200_000,
   },
   {
-    id: "ORD-1002",
+    id: "101002",
     customerName: "سارا محمدی",
     productName: "هودی سفید",
     quantity: 1,
@@ -20,7 +20,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_450_000,
   },
   {
-    id: "ORD-1003",
+    id: "101003",
     customerName: "رضا کریمی",
     productName: "شلوار جین آبی",
     quantity: 1,
@@ -29,7 +29,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_980_000,
   },
   {
-    id: "ORD-1004",
+    id: "101004",
     customerName: "نگار حسینی",
     productName: "کت جین",
     quantity: 1,
@@ -38,7 +38,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_700_000,
   },
   {
-    id: "ORD-1005",
+    id: "101005",
     customerName: "محمد رضایی",
     productName: "پیراهن چهارخانه",
     quantity: 3,
@@ -47,7 +47,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_100_000,
   },
   {
-    id: "ORD-1006",
+    id: "101006",
     customerName: "فاطمه اکبری",
     productName: "مانتو کرم",
     quantity: 1,
@@ -56,7 +56,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_850_000,
   },
   {
-    id: "ORD-1007",
+    id: "101007",
     customerName: "امیر طاهری",
     productName: "کفش اسپرت",
     quantity: 2,
@@ -65,7 +65,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_200_000,
   },
   {
-    id: "ORD-1008",
+    id: "101008",
     customerName: "الهام نادری",
     productName: "شال طوسی",
     quantity: 2,
@@ -74,7 +74,7 @@ export const mockOrders: Order[] = [
     totalPrice: 980_000,
   },
   {
-    id: "ORD-1009",
+    id: "101009",
     customerName: "حسین جعفری",
     productName: "کاپشن چرمی",
     quantity: 1,
@@ -83,7 +83,7 @@ export const mockOrders: Order[] = [
     totalPrice: 5_400_000,
   },
   {
-    id: "ORD-1010",
+    id: "101010",
     customerName: "مریم قاسمی",
     productName: "دامن بلند",
     quantity: 1,
@@ -92,7 +92,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_350_000,
   },
   {
-    id: "ORD-1011",
+    id: "101011",
     customerName: "پارسا بهرامی",
     productName: "پولوشرت سبز",
     quantity: 2,
@@ -101,7 +101,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_600_000,
   },
   {
-    id: "ORD-1012",
+    id: "101012",
     customerName: "زهرا موسوی",
     productName: "شومیز سفید",
     quantity: 1,
@@ -110,7 +110,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_100_000,
   },
   {
-    id: "ORD-1013",
+    id: "101013",
     customerName: "نیما کاظمی",
     productName: "کت اسپرت",
     quantity: 1,
@@ -119,7 +119,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_200_000,
   },
   {
-    id: "ORD-1014",
+    id: "101014",
     customerName: "آیدا رستمی",
     productName: "شلوار پارچه‌ای",
     quantity: 2,
@@ -128,7 +128,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_300_000,
   },
   {
-    id: "ORD-1015",
+    id: "101015",
     customerName: "سامان کریمی",
     productName: "کاپشن زمستانی",
     quantity: 1,
@@ -137,7 +137,7 @@ export const mockOrders: Order[] = [
     totalPrice: 6_500_000,
   },
   {
-    id: "ORD-1016",
+    id: "101016",
     customerName: "علی احمدی",
     productName: "تیشرت مشکی",
     quantity: 2,
@@ -146,7 +146,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_200_000,
   },
   {
-    id: "ORD-1017",
+    id: "101017",
     customerName: "سارا محمدی",
     productName: "هودی سفید",
     quantity: 1,
@@ -155,7 +155,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_450_000,
   },
   {
-    id: "ORD-1018",
+    id: "101018",
     customerName: "رضا کریمی",
     productName: "شلوار جین آبی",
     quantity: 1,
@@ -164,7 +164,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_980_000,
   },
   {
-    id: "ORD-1019",
+    id: "101019",
     customerName: "نگار حسینی",
     productName: "کت جین",
     quantity: 1,
@@ -173,7 +173,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_700_000,
   },
   {
-    id: "ORD-1020",
+    id: "101020",
     customerName: "محمد رضایی",
     productName: "پیراهن چهارخانه",
     quantity: 3,
@@ -182,7 +182,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_100_000,
   },
   {
-    id: "ORD-1021",
+    id: "101021",
     customerName: "فاطمه اکبری",
     productName: "مانتو کرم",
     quantity: 1,
@@ -191,7 +191,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_850_000,
   },
   {
-    id: "ORD-1022",
+    id: "101022",
     customerName: "امیر طاهری",
     productName: "کفش اسپرت",
     quantity: 2,
@@ -200,7 +200,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_200_000,
   },
   {
-    id: "ORD-1023",
+    id: "101023",
     customerName: "الهام نادری",
     productName: "شال طوسی",
     quantity: 2,
@@ -209,7 +209,7 @@ export const mockOrders: Order[] = [
     totalPrice: 980_000,
   },
   {
-    id: "ORD-1024",
+    id: "101024",
     customerName: "حسین جعفری",
     productName: "کاپشن چرمی",
     quantity: 1,
@@ -218,7 +218,7 @@ export const mockOrders: Order[] = [
     totalPrice: 5_400_000,
   },
   {
-    id: "ORD-1025",
+    id: "101025",
     customerName: "مریم قاسمی",
     productName: "دامن بلند",
     quantity: 1,
@@ -227,7 +227,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_350_000,
   },
   {
-    id: "ORD-1026",
+    id: "101026",
     customerName: "پارسا بهرامی",
     productName: "پولوشرت سبز",
     quantity: 2,
@@ -236,7 +236,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_600_000,
   },
   {
-    id: "ORD-1027",
+    id: "101027",
     customerName: "زهرا موسوی",
     productName: "شومیز سفید",
     quantity: 1,
@@ -245,7 +245,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_100_000,
   },
   {
-    id: "ORD-1028",
+    id: "101028",
     customerName: "نیما کاظمی",
     productName: "کت اسپرت",
     quantity: 1,
@@ -254,7 +254,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_200_000,
   },
   {
-    id: "ORD-1029",
+    id: "101029",
     customerName: "آیدا رستمی",
     productName: "شلوار پارچه‌ای",
     quantity: 2,
@@ -263,7 +263,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_300_000,
   },
   {
-    id: "ORD-1030",
+    id: "101030",
     customerName: "سامان کریمی",
     productName: "کاپشن زمستانی",
     quantity: 1,
@@ -272,7 +272,7 @@ export const mockOrders: Order[] = [
     totalPrice: 6_500_000,
   },
   {
-    id: "ORD-1031",
+    id: "101031",
     customerName: "علی احمدی",
     productName: "تیشرت مشکی",
     quantity: 2,
@@ -281,7 +281,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_200_000,
   },
   {
-    id: "ORD-1032",
+    id: "101032",
     customerName: "سارا محمدی",
     productName: "هودی سفید",
     quantity: 1,
@@ -290,7 +290,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_450_000,
   },
   {
-    id: "ORD-1033",
+    id: "101033",
     customerName: "رضا کریمی",
     productName: "شلوار جین آبی",
     quantity: 1,
@@ -299,7 +299,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_980_000,
   },
   {
-    id: "ORD-1034",
+    id: "101034",
     customerName: "نگار حسینی",
     productName: "کت جین",
     quantity: 1,
@@ -308,7 +308,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_700_000,
   },
   {
-    id: "ORD-1035",
+    id: "101035",
     customerName: "محمد رضایی",
     productName: "پیراهن چهارخانه",
     quantity: 3,
@@ -317,7 +317,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_100_000,
   },
   {
-    id: "ORD-1036",
+    id: "101036",
     customerName: "فاطمه اکبری",
     productName: "مانتو کرم",
     quantity: 1,
@@ -326,7 +326,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_850_000,
   },
   {
-    id: "ORD-1037",
+    id: "101037",
     customerName: "امیر طاهری",
     productName: "کفش اسپرت",
     quantity: 2,
@@ -335,7 +335,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_200_000,
   },
   {
-    id: "ORD-1038",
+    id: "101038",
     customerName: "الهام نادری",
     productName: "شال طوسی",
     quantity: 2,
@@ -344,7 +344,7 @@ export const mockOrders: Order[] = [
     totalPrice: 980_000,
   },
   {
-    id: "ORD-1039",
+    id: "101039",
     customerName: "حسین جعفری",
     productName: "کاپشن چرمی",
     quantity: 1,
@@ -353,7 +353,7 @@ export const mockOrders: Order[] = [
     totalPrice: 5_400_000,
   },
   {
-    id: "ORD-1040",
+    id: "101040",
     customerName: "مریم قاسمی",
     productName: "دامن بلند",
     quantity: 1,
@@ -362,7 +362,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_350_000,
   },
   {
-    id: "ORD-1041",
+    id: "101041",
     customerName: "پارسا بهرامی",
     productName: "پولوشرت سبز",
     quantity: 2,
@@ -371,7 +371,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_600_000,
   },
   {
-    id: "ORD-1042",
+    id: "101042",
     customerName: "زهرا موسوی",
     productName: "شومیز سفید",
     quantity: 1,
@@ -380,7 +380,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_100_000,
   },
   {
-    id: "ORD-1043",
+    id: "101043",
     customerName: "نیما کاظمی",
     productName: "کت اسپرت",
     quantity: 1,
@@ -389,7 +389,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_200_000,
   },
   {
-    id: "ORD-1044",
+    id: "101044",
     customerName: "آیدا رستمی",
     productName: "شلوار پارچه‌ای",
     quantity: 2,
@@ -398,7 +398,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_300_000,
   },
   {
-    id: "ORD-1045",
+    id: "101045",
     customerName: "سامان کریمی",
     productName: "کاپشن زمستانی",
     quantity: 1,
@@ -407,7 +407,7 @@ export const mockOrders: Order[] = [
     totalPrice: 6_500_000,
   },
   {
-    id: "ORD-1046",
+    id: "101046",
     customerName: "علی احمدی",
     productName: "تیشرت مشکی",
     quantity: 2,
@@ -416,7 +416,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_200_000,
   },
   {
-    id: "ORD-1047",
+    id: "101047",
     customerName: "سارا محمدی",
     productName: "هودی سفید",
     quantity: 1,
@@ -425,7 +425,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_450_000,
   },
   {
-    id: "ORD-1048",
+    id: "101048",
     customerName: "رضا کریمی",
     productName: "شلوار جین آبی",
     quantity: 1,
@@ -434,7 +434,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_980_000,
   },
   {
-    id: "ORD-1049",
+    id: "101049",
     customerName: "نگار حسینی",
     productName: "کت جین",
     quantity: 1,
@@ -443,7 +443,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_700_000,
   },
   {
-    id: "ORD-1050",
+    id: "101050",
     customerName: "محمد رضایی",
     productName: "پیراهن چهارخانه",
     quantity: 3,
@@ -452,7 +452,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_100_000,
   },
   {
-    id: "ORD-1051",
+    id: "101051",
     customerName: "فاطمه اکبری",
     productName: "مانتو کرم",
     quantity: 1,
@@ -461,7 +461,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_850_000,
   },
   {
-    id: "ORD-1052",
+    id: "101052",
     customerName: "امیر طاهری",
     productName: "کفش اسپرت",
     quantity: 2,
@@ -470,7 +470,7 @@ export const mockOrders: Order[] = [
     totalPrice: 3_200_000,
   },
   {
-    id: "ORD-1053",
+    id: "101053",
     customerName: "الهام نادری",
     productName: "شال طوسی",
     quantity: 2,
@@ -479,7 +479,7 @@ export const mockOrders: Order[] = [
     totalPrice: 980_000,
   },
   {
-    id: "ORD-1054",
+    id: "101054",
     customerName: "حسین جعفری",
     productName: "کاپشن چرمی",
     quantity: 1,
@@ -488,7 +488,7 @@ export const mockOrders: Order[] = [
     totalPrice: 5_400_000,
   },
   {
-    id: "ORD-1055",
+    id: "101055",
     customerName: "مریم قاسمی",
     productName: "دامن بلند",
     quantity: 1,
@@ -497,7 +497,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_350_000,
   },
   {
-    id: "ORD-1056",
+    id: "101056",
     customerName: "پارسا بهرامی",
     productName: "پولوشرت سبز",
     quantity: 2,
@@ -506,7 +506,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_600_000,
   },
   {
-    id: "ORD-1057",
+    id: "101057",
     customerName: "زهرا موسوی",
     productName: "شومیز سفید",
     quantity: 1,
@@ -515,7 +515,7 @@ export const mockOrders: Order[] = [
     totalPrice: 1_100_000,
   },
   {
-    id: "ORD-1058",
+    id: "101058",
     customerName: "نیما کاظمی",
     productName: "کت اسپرت",
     quantity: 1,
@@ -524,7 +524,7 @@ export const mockOrders: Order[] = [
     totalPrice: 4_200_000,
   },
   {
-    id: "ORD-1059",
+    id: "101059",
     customerName: "آیدا رستمی",
     productName: "شلوار پارچه‌ای",
     quantity: 2,
@@ -533,7 +533,7 @@ export const mockOrders: Order[] = [
     totalPrice: 2_300_000,
   },
   {
-    id: "ORD-1060",
+    id: "101060",
     customerName: "سامان کریمی",
     productName: "کاپشن زمستانی",
     quantity: 1,
