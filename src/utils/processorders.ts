@@ -1,5 +1,5 @@
-import type { Order } from "../types/orders";
-import type { OrdersFilters } from "../types/ordersFilters";
+import type { Order, OrdersFilters } from "../types/orderTypes";
+import { paginate } from "./paginate";
 
 export function processOrders(
   orders: Order[],
@@ -28,12 +28,11 @@ export function processOrders(
     const dateA = new Date(a.createdAt).getTime();
     const dateB = new Date(b.createdAt).getTime();
 
-    if (filters.sort === "date_desc") {
-      return dateB - dateA;
-    }
-
-    return dateA - dateB;
+    return filters.sort === "date_desc" ? dateB - dateA : dateA - dateB;
   });
+
+  // pagination
+  result = paginate(result, filters.page, 20);
 
   return result;
 }
