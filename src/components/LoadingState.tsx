@@ -43,7 +43,7 @@ export default function LoadingState() {
             <tr key={row} className="border-t">
               {Array.from({ length: 8 }).map((_, col) => (
                 <td key={col} className="px-4 py-4">
-                  <div className="h-4 animate-pulse rounded bg-gray-200" />
+                  <div className="h-7 animate-pulse rounded bg-gray-200" />
                 </td>
               ))}
             </tr>
