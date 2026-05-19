@@ -91,7 +91,7 @@ export default function OrderTable({ orders, onEdit }: Props) {
                   <button
                     aria-label="Change order status"
                     onClick={() => onEdit(order)}
-                    className="rounded-md bg-blue-500 px-3 py-2 text-white text-md outline-none">
+                    className="rounded-md bg-blue-500 px-3 py-2 text-white text-md outline-none hover:bg-blue-600">
                     تغییر وضعیت
                   </button>
                 </td>

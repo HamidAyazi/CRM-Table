@@ -13,6 +13,12 @@ const statusStyles: Record<OrderStatus, string> = {
   completed: "bg-green-100 text-green-800",
   cancelled: "bg-red-100 text-red-800",
 };
+const statusHoverStyles: Record<OrderStatus, string> = {
+  pending: "hover:bg-yellow-200",
+  processing: "hover:bg-blue-200",
+  completed: "hover:bg-green-200",
+  cancelled: "hover:bg-red-200",
+};
 
 const statuses: OrderStatus[] = [
   "completed",
@@ -29,6 +35,7 @@ const statusMap = {
 
 export default function OrderModal({ order, onClose, onSave }: Props) {
   useEffect(() => {
+    //close modal on Escape key press
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
@@ -49,9 +56,9 @@ export default function OrderModal({ order, onClose, onSave }: Props) {
           <h2 className="mb-4 text-lg font-bold">تغییر وضعیت سفارش</h2>
 
           <div className="mb-4">
-            <p className="text-sm mb-2">سفارش: {order.id}</p>
+            <p className="text-sm mb-4">شماره سفارش: {order.id}</p>
 
-            <div className="flex flex-col gap-2">
+            <div className="flex flex-col gap-2 mt-2">
               {statuses.map((status) => (
                 <button
                   aria-label="updade order status"
@@ -60,19 +67,18 @@ export default function OrderModal({ order, onClose, onSave }: Props) {
                     onSave(order.id, status);
                     onClose();
                   }}
-                  className={`rounded border px-3 py-2 text-sm  ${statusStyles[status]}`}>
+                  className={`rounded border px-3 py-2 text-sm  ${statusStyles[status]} ${statusHoverStyles[status]}`}>
                   {statusMap[status]}
                 </button>
               ))}
+              <button
+                aria-label="close modal"
+                onClick={onClose}
+                className="rounded border px-3 py-2 text-sm bg-gray-100 mt-6">
+                بستن
+              </button>
             </div>
           </div>
-
-          <button
-            aria-label="close modal"
-            onClick={onClose}
-            className="mt-4 text-sm text-gray-500">
-            بستن
-          </button>
         </div>
       </div>
     </div>

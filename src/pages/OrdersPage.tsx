@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OrderTable from "../components/OrderTable";
 import SearchInput from "../components/SearchInput";
 import StatusFilter from "../components/StatusFilter";
@@ -21,6 +21,18 @@ export default function OrdersPage() {
     loading,
     error,
   } = useOrders();
+
+  const [searchInput, setSearchInput] = useState(filters.search);
+  useEffect(() => { //adding debounce in search params
+    const t = setTimeout(() => {
+      setFilters({
+        search: searchInput,
+        page: 1,
+      });
+    }, 300);
+
+    return () => clearTimeout(t);
+  }, [searchInput]);
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   return (
     <main className="p-2 max-w-6xl m-4">
@@ -28,15 +40,7 @@ export default function OrdersPage() {
 
       {/* seach field */}
       <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center">
-        <SearchInput
-          value={filters.search}
-          onChange={(value) =>
-            setFilters({
-              search: value,
-              page: 1,
-            })
-          }
-        />
+        <SearchInput value={searchInput} onChange={setSearchInput} />
 
         <StatusFilter
           value={filters.status}
