@@ -1,19 +1,37 @@
 import { useMemo } from "react";
 import { mockOrders } from "../data/mockOrders";
+import { paginate } from "../utils/paginate";
+import { processOrders } from "../utils/processOrders";
 import { useQueryParams } from "./useQueryParams";
-import { processOrders } from "../utils/processorders";
+
+const PAGE_SIZE = 10;
 
 export function useOrders() {
   const { filters, setFilters } = useQueryParams();
 
-  const visibleOrders = useMemo(() => {
+  // filter and sort
+  const processedOrders = useMemo(() => {
     return processOrders(mockOrders, filters);
-  }, [filters, mockOrders]);
+  }, [filters]);
+
+  // paginate
+  const paginatedOrders = useMemo(() => {
+    return paginate(
+      processedOrders,
+      filters.page,
+      PAGE_SIZE
+    );
+  }, [processedOrders, filters.page]);
+
+  const totalPages = Math.ceil(
+    processedOrders.length / PAGE_SIZE
+  );
 
   return {
-    orders: visibleOrders,
+    orders: paginatedOrders,
     filters,
     setFilters,
-    total: mockOrders.length,
+    totalPages,
+    totalItems: processedOrders.length,
   };
 }

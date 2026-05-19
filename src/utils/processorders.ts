@@ -31,8 +31,5 @@ export function processOrders(
     return filters.sort === "date_desc" ? dateB - dateA : dateA - dateB;
   });
 
-  // pagination
-  result = paginate(result, filters.page, 20);
-
   return result;
 }

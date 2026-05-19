@@ -3,9 +3,10 @@ import SearchInput from "../components/SearchInput";
 import { useOrders } from "../hooks/useOrders";
 import StatusFilter from "../components/StatusFilter";
 import SortSelect from "../components/SortSelect";
+import Pagination from "../components/Pagination";
 
 export default function OrdersPage() {
-  const { orders, filters, setFilters } = useOrders();
+  const { orders, filters, setFilters, totalPages } = useOrders();
 
   return (
     <main className="p-6 max-w-6xl mx-auto">
@@ -44,6 +45,11 @@ export default function OrdersPage() {
       </div>
 
       <OrderTable orders={orders} />
+      <Pagination
+        currentPage={filters.page}
+        totalPages={totalPages}
+        onPageChange={(page) => setFilters({ page })}
+      />
     </main>
   );
 }
