@@ -50,11 +50,12 @@ export default function Pagination({
           </span>
         ) : (
           <button
+          aria-label="change page"
             key={page}
             onClick={() => onPageChange(page)}
-            className={`rounded-md px-3 py-1 border text-sm ${
+            className={`rounded-md px-3 py-1 border text-sm outline-none ${
               currentPage === page
-                ? "bg-black text-white"
+                ? "bg-blue-500 text-white"
                 : "bg-white"
             }`}
           >

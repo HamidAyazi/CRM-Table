@@ -18,9 +18,9 @@ export default function StatusFilter({
       className="rounded-md border px-3 py-2 text-sm outline-none"
     >
       <option value="all">همه وضعیت‌ها</option>
-      <option value="pending">در انتظار</option>
-      <option value="processing">در حال پردازش</option>
       <option value="completed">تکمیل شده</option>
+      <option value="processing">در حال پردازش</option>
+      <option value="pending">در انتظار</option>
       <option value="cancelled">لغو شده</option>
     </select>
   );

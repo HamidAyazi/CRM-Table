@@ -1,7 +1,7 @@
 export default function LoadingState() {
   return (
     <div className="overflow-x-auto rounded-lg border">
-      <table className="min-w-full table-fixed text-sm">
+      <table className="min-w-full table-fixed text-sm" role="table">
         <thead className="bg-gray-100">
           <tr>
             <th className="w-[140px] px-4 py-3 text-center">

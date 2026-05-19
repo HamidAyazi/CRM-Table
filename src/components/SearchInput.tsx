@@ -7,6 +7,7 @@ export default function SearchInput({ value, onChange }: Props) {
   return (
     <div className="w-full md:flex-1">
       <input
+        aria-label="Search orders"
         type="text"
         value={value}
         placeholder="جستجو بر اساس نام یا شماره سفارش..."
