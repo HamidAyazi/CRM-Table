@@ -17,18 +17,35 @@ const statusStyles: Record<OrderStatus, string> = {
 };
 
 export default function OrderTable({ orders }: Props) {
+  if (orders.length === 0) {
+    return <div className="p-4 text-center">هیچ سفارشی وجود ندارد</div>;
+  }
   return (
     <div className="overflow-x-auto rounded-lg border">
       <table className="min-w-full text-sm" role="table">
         <thead className="bg-gray-100">
           <tr>
-            <th scope="col" className="px-4 py-3 text-center">شماره سفارش</th>
-            <th scope="col" className="px-4 py-3 text-center">مشتری</th>
-            <th scope="col" className="px-4 py-3 text-center">محصول</th>
-            <th scope="col" className="px-4 py-3 text-center">تعداد</th>
-            <th scope="col" className="px-4 py-3 text-center">مبلغ</th>
-            <th scope="col" className="px-4 py-3 text-center">وضعیت</th>
-            <th scope="col" className="px-4 py-3 text-center">تاریخ</th>
+            <th scope="col" className="px-4 py-3 text-center">
+              شماره سفارش
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              مشتری
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              محصول
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              تعداد
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              مبلغ
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              وضعیت
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              تاریخ
+            </th>
           </tr>
         </thead>
 
@@ -48,7 +65,10 @@ export default function OrderTable({ orders }: Props) {
               </td>
 
               <td className="px-4 py-3">
-                <span className={`rounded-full px-2 py-1 text-xs ${statusStyles[order.status]}`}> {statusMap[order.status]} </span>
+                <span
+                  className={`rounded-full px-2 py-1 text-xs ${statusStyles[order.status]}`}>
+                  {statusMap[order.status]}
+                </span>
               </td>
 
               <td className="px-4 py-3">
