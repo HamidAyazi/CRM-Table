@@ -3,12 +3,6 @@ import type { Order } from "../types/orders";
 interface Props {
   orders: Order[];
 }
-const statusMap = {
-  pending: "در انتظار",
-  processing: "در حال پردازش",
-  completed: "تکمیل شده",
-  cancelled: "لغو شده",
-};
 
 export default function OrderTable({ orders }: Props) {
   return (
@@ -51,7 +45,7 @@ export default function OrderTable({ orders }: Props) {
               </td>
 
               <td className="px-4 py-3">
-                {statusMap[order.status]}
+                {order.status}
               </td>
 
               <td className="px-4 py-3">
