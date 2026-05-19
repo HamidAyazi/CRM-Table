@@ -1,16 +1,26 @@
+import { useState } from "react";
 import OrderTable from "../components/OrderTable";
 import SearchInput from "../components/SearchInput";
-import { useOrders } from "../hooks/useOrders";
 import StatusFilter from "../components/StatusFilter";
 import SortSelect from "../components/SortSelect";
 import Pagination from "../components/Pagination";
-import { useState } from "react";
-import type { Order } from "../types/orderTypes";
 import OrderModal from "../components/OrderModal";
+import LoadingState from "../components/LoadingState";
+import EmptyState from "../components/EmptyState";
+import ErrorState from "../components/ErrorState";
+import { useOrders } from "../hooks/useOrders";
+import type { Order } from "../types/orderTypes";
 
 export default function OrdersPage() {
-  const { orders, filters, setFilters, totalPages, updateOrderStatus } =
-    useOrders();
+  const {
+    orders,
+    filters,
+    setFilters,
+    totalPages,
+    updateOrderStatus,
+    loading,
+    error,
+  } = useOrders();
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   return (
     <main className="p-6 max-w-6xl mx-auto">
@@ -48,12 +58,23 @@ export default function OrdersPage() {
         />
       </div>
 
-      <OrderTable orders={orders} onEdit={setSelectedOrder} />
-      <Pagination
-        currentPage={filters.page}
-        totalPages={totalPages}
-        onPageChange={(page) => setFilters({ page })}
-      />
+      {loading ? (
+        <LoadingState />
+      ) : error ? (
+        <ErrorState message={error} />
+      ) : orders.length === 0 ? (
+        <EmptyState />
+      ) : (
+        <>
+          <OrderTable orders={orders} onEdit={setSelectedOrder} />
+
+          <Pagination
+            currentPage={filters.page}
+            totalPages={totalPages}
+            onPageChange={(page) => setFilters({ page })}
+          />
+        </>
+      )}
       <OrderModal
         order={selectedOrder}
         onClose={() => setSelectedOrder(null)}

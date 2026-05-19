@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { mockOrders } from "../data/mockOrders";
 import { paginate } from "../utils/paginate";
 import { processOrders } from "../utils/processOrders";
@@ -9,7 +9,24 @@ const PAGE_SIZE = 10;
 
 export function useOrders() {
   const { filters, setFilters } = useQueryParams();
-  const [ordersData, setOrdersData] = useState(mockOrders);
+  const [ordersData, setOrdersData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  //simulate fetching data
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      try {
+        setOrdersData(mockOrders);
+        setLoading(false);
+      } catch (err) {
+        setError("خطا در دریافت سفارش‌ها");
+        setLoading(false);
+      }
+    }, 600);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   // filter and sort
   const processedOrders = useMemo(() => {
@@ -23,16 +40,11 @@ export function useOrders() {
 
   const totalPages = Math.ceil(processedOrders.length / PAGE_SIZE);
 
-  const updateOrderStatus = (
-    orderId: string,
-    status: OrderStatus
-  ) => {
+  const updateOrderStatus = (orderId: string, status: OrderStatus) => {
     setOrdersData((prev) =>
       prev.map((order) =>
-        order.id === orderId
-          ? { ...order, status }
-          : order
-      )
+        order.id === orderId ? { ...order, status } : order,
+      ),
     );
   };
 
@@ -43,5 +55,7 @@ export function useOrders() {
     totalPages,
     totalItems: processedOrders.length,
     updateOrderStatus,
+    loading,
+    error
   };
 }
