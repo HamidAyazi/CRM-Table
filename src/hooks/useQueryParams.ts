@@ -1,27 +1,46 @@
 import { useMemo } from "react";
-import type { OrdersFilters } from "../types/ordersFilters";
+import { useSearchParams } from "react-router-dom";
+import type { OrdersFilters, SortOption } from "../types/ordersFilters";
 import type { OrderStatus } from "../types/orders";
 
-export function useQueryParams(): OrdersFilters {
-  const filters = useMemo(() => {
-    const params = new URLSearchParams(window.location.search);
+export function useQueryParams() {
+  const [searchParams, setSearchParams] = useSearchParams();
 
-    const search = params.get("search") ?? "";
-
-    const status = (params.get("status") as OrderStatus | "all") ?? "all";
-
-    const sort =
-      (params.get("sort") as "date_asc" | "date_desc") ?? "date_desc";
-
-    const page = Number(params.get("page") ?? 1);
-
+  // reading url to update filters
+  const filters: OrdersFilters = useMemo(() => {
     return {
-      search,
-      status,
-      sort,
-      page,
+      search: searchParams.get("search") ?? "",
+      status: (searchParams.get("status") as OrderStatus | "all") ?? "all",
+      sort: (searchParams.get("sort") as SortOption) ?? "date_desc",
+      page: Number(searchParams.get("page") ?? 1),
     };
-  }, []);
+  }, [searchParams]);
 
-  return filters;
+  // updating url based on filters
+  const setFilters = (updates: Partial<OrdersFilters>) => {
+    const next = new URLSearchParams(searchParams);
+
+    if (updates.search !== undefined) {
+      next.set("search", updates.search);
+    }
+
+    if (updates.status !== undefined) {
+      next.set("status", updates.status);
+    }
+
+    if (updates.sort !== undefined) {
+      next.set("sort", updates.sort);
+    }
+
+    if (updates.page !== undefined) {
+      next.set("page", String(updates.page));
+    }
+
+    setSearchParams(next);
+  };
+
+  return {
+    filters,
+    setFilters,
+  };
 }
