@@ -1,5 +1,6 @@
 import type { Order, OrderStatus } from "../types/orderTypes";
 import { formatDate } from "../utils/formatDate";
+import { useDragScroll } from "../hooks/useDragScroll";
 
 interface Props {
   orders: Order[];
@@ -19,8 +20,13 @@ const statusStyles: Record<OrderStatus, string> = {
 };
 
 export default function OrderTable({ orders, onEdit }: Props) {
+  const { ref, handlers } = useDragScroll<HTMLDivElement>();
+
   return (
-    <div className="w-full overflow-x-auto rounded-lg border">
+    <div
+      ref={ref}
+      {...handlers}
+      className="w-full overflow-x-auto cursor-grab select-none rounded-lg border">
       <div className="min-w-[900px]">
         <table className="min-w-full table-fixed text-sm">
           <thead className="bg-gray-100 h-[60px]">
