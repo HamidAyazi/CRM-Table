@@ -1,8 +1,10 @@
+import { BrowserRouter } from "react-router-dom";
 import OrdersPage from "./pages/OrdersPage";
-import "./App.css";
 
-function App() {
-  return <OrdersPage />;
+export default function App() {
+  return (
+    <BrowserRouter>
+      <OrdersPage />
+    </BrowserRouter>
+  );
 }
-
-export default App;
