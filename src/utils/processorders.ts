@@ -1,5 +1,4 @@
 import type { Order, OrdersFilters } from "../types/orderTypes";
-import { paginate } from "./paginate";
 
 export function processOrders(
   orders: Order[],

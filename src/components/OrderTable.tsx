@@ -2,6 +2,7 @@ import type { Order, OrderStatus } from "../types/orderTypes";
 
 interface Props {
   orders: Order[];
+  onEdit: (order: Order) => void;
 }
 const statusMap = {
   pending: "در انتظار",
@@ -16,7 +17,7 @@ const statusStyles: Record<OrderStatus, string> = {
   cancelled: "bg-red-100 text-red-800",
 };
 
-export default function OrderTable({ orders }: Props) {
+export default function OrderTable({ orders, onEdit }: Props) {
   if (orders.length === 0) {
     return <div className="p-4 text-center">هیچ سفارشی وجود ندارد</div>;
   }
@@ -46,6 +47,7 @@ export default function OrderTable({ orders }: Props) {
             <th scope="col" className="px-4 py-3 text-center">
               تاریخ
             </th>
+            <th className="px-4 py-3 text-center">عملیات</th>
           </tr>
         </thead>
 
@@ -73,6 +75,13 @@ export default function OrderTable({ orders }: Props) {
 
               <td className="px-4 py-3">
                 {new Date(order.createdAt).toLocaleDateString("fa-IR")}
+              </td>
+              <td className="px-4 py-3">
+                <button
+                  onClick={() => onEdit(order)}
+                  className="rounded bg-black px-3 py-1 text-white text-xs">
+                  تغییر وضعیت
+                </button>
               </td>
             </tr>
           ))}
