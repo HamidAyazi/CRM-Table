@@ -23,8 +23,8 @@ export default function OrdersPage() {
   } = useOrders();
   const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
   return (
-    <main className="p-6 max-w-6xl mx-auto">
-      <h1 className="mb-6 text-2xl font-bold">مدیریت سفارش‌ها</h1>
+    <main className="p-2 max-w-6xl m-4">
+      <h1 className="text-2xl font-bold">مدیریت سفارش‌ها</h1>
 
       {/* seach field */}
       <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center">
@@ -57,24 +57,24 @@ export default function OrdersPage() {
           }
         />
       </div>
-
-      {loading ? (
-        <LoadingState />
-      ) : error ? (
-        <ErrorState message={error} />
-      ) : orders.length === 0 ? (
-        <EmptyState />
-      ) : (
-        <>
-          <OrderTable orders={orders} onEdit={setSelectedOrder} />
-
-          <Pagination
-            currentPage={filters.page}
-            totalPages={totalPages}
-            onPageChange={(page) => setFilters({ page })}
-          />
-        </>
-      )}
+      <div className="min-w-[400px]">
+        {loading ? (
+          <LoadingState />
+        ) : error ? (
+          <ErrorState message={error} />
+        ) : orders.length === 0 ? (
+          <EmptyState />
+        ) : (
+          <>
+            <OrderTable orders={orders} onEdit={setSelectedOrder} />
+            <Pagination
+              currentPage={filters.page}
+              totalPages={totalPages}
+              onPageChange={(page) => setFilters({ page })}
+            />
+          </>
+        )}
+      </div>
       <OrderModal
         order={selectedOrder}
         onClose={() => setSelectedOrder(null)}

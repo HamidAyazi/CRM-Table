@@ -1,7 +1,12 @@
 export default function EmptyState() {
   return (
-    <div className="rounded-lg border border-dashed py-10 text-center text-gray-500">
-      سفارشی پیدا نشد
+    <div className="flex min-h-[240px] flex-col items-center justify-center text-center text-gray-500">
+      <div className="text-lg font-medium">
+        موردی پیدا نشد
+      </div>
+      <div className="mt-2 text-sm">
+        نتایج جستجو یا فیلترها خالی هستند
+      </div>
     </div>
   );
 }
