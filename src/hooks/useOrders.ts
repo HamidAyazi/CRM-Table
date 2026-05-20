@@ -3,13 +3,13 @@ import { mockOrders } from "../data/mockOrders";
 import { paginate } from "../utils/paginate";
 import { processOrders } from "../utils/processOrders";
 import { useQueryParams } from "./useQueryParams";
-import type { OrderStatus } from "../types/orderTypes";
+import type { OrderStatus, Order } from "../types/orderTypes";
 
 const PAGE_SIZE = 10;
 
 export function useOrders() {
   const { filters, setFilters } = useQueryParams();
-  const [ordersData, setOrdersData] = useState([]);
+  const [ordersData, setOrdersData] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 

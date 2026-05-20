@@ -17,6 +17,7 @@ export default function OrdersPage() {
     filters,
     setFilters,
     totalPages,
+    totalItems,
     updateOrderStatus,
     loading,
     error,
@@ -74,6 +75,7 @@ export default function OrdersPage() {
             <Pagination
               currentPage={filters.page}
               totalPages={totalPages}
+              totalItems={totalItems}
               onPageChange={(page) => setFilters({ page })}
             />
           </>

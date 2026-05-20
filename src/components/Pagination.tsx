@@ -1,6 +1,7 @@
 interface Props {
   currentPage: number;
   totalPages: number;
+  totalItems: number;
   onPageChange: (page: number) => void;
 }
 
@@ -35,6 +36,7 @@ function getPages(current: number, total: number) {
 export default function Pagination({
   currentPage,
   totalPages,
+  totalItems,
   onPageChange,
 }: Props) {
   if (totalPages <= 1) return null;
@@ -42,27 +44,29 @@ export default function Pagination({
   const pages = getPages(currentPage, totalPages);
 
   return (
-    <div className="mt-6 flex items-center justify-center gap-2">
-      {pages.map((page, idx) =>
-        page === "..." ? (
-          <span key={`dots-${idx}`} className="px-2 text-gray-400">
-            ...
-          </span>
-        ) : (
-          <button
-          aria-label="change page"
-            key={page}
-            onClick={() => onPageChange(page)}
-            className={`rounded-md px-3 py-1 border text-sm outline-none ${
-              currentPage === page
-                ? "bg-blue-500 text-white"
-                : "bg-white"
-            }`}
-          >
-            {page}
-          </button>
-        )
-      )}
-    </div>
+    <>
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {pages.map((page, idx) =>
+          page === "..." ? (
+            <span key={`dots-${idx}`} className="px-2 text-gray-400">
+              ...
+            </span>
+          ) : (
+            <button
+              aria-label="change page"
+              key={page}
+              onClick={() => onPageChange(page)}
+              className={`rounded-md px-3 py-1 border text-sm outline-none ${
+                currentPage === page ? "bg-blue-500 text-white" : "bg-white"
+              }`}>
+              {page}
+            </button>
+          ),
+        )}
+      </div>
+      <div className="mt-3 text-center text-sm text-gray-500">
+        مجموع {totalItems.toLocaleString("fa-IR")} سفارش
+      </div>
+    </>
   );
 }
