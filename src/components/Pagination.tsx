@@ -1,8 +1,12 @@
+import PageSizeInput from "./PageSizeInput";
+
 interface Props {
   currentPage: number;
   totalPages: number;
   totalItems: number;
+  pageSize: number;
   onPageChange: (page: number) => void;
+  onPageSizeChange: (size: number) => void;
 }
 
 function getPages(current: number, total: number) {
@@ -37,7 +41,9 @@ export default function Pagination({
   currentPage,
   totalPages,
   totalItems,
+  pageSize,
   onPageChange,
+  onPageSizeChange,
 }: Props) {
   if (totalPages <= 1) return null;
 
@@ -59,13 +65,14 @@ export default function Pagination({
               className={`rounded-md px-3 py-1 border text-sm outline-none ${
                 currentPage === page ? "bg-blue-500 text-white" : "bg-white"
               }`}>
-              {page}
+              {page.toLocaleString("fa-IR")}
             </button>
           ),
         )}
       </div>
-      <div className="mt-3 text-center text-sm text-gray-500">
-        مجموع {totalItems.toLocaleString("fa-IR")} سفارش
+      <div className="mt-4 flex flex-col items-center gap-3 text-sm text-gray-600">
+        <div>مجموع {totalItems.toLocaleString("fa-IR")} سفارش</div>
+        <PageSizeInput pageSize={pageSize} onChange={onPageSizeChange} />
       </div>
     </>
   );

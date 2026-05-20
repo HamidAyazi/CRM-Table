@@ -5,7 +5,6 @@ import { processOrders } from "../utils/processOrders";
 import { useQueryParams } from "./useQueryParams";
 import type { OrderStatus, Order } from "../types/orderTypes";
 
-const PAGE_SIZE = 10;
 
 export function useOrders() {
   const { filters, setFilters } = useQueryParams();
@@ -35,10 +34,10 @@ export function useOrders() {
 
   // paginate
   const paginatedOrders = useMemo(() => {
-    return paginate(processedOrders, filters.page, PAGE_SIZE);
+    return paginate(processedOrders, filters.page, filters.pageSize);
   }, [processedOrders, filters.page]);
 
-  const totalPages = Math.ceil(processedOrders.length / PAGE_SIZE);
+  const totalPages = Math.ceil(processedOrders.length / filters.pageSize);
 
   const updateOrderStatus = (orderId: string, status: OrderStatus) => {
     setOrdersData((prev) =>

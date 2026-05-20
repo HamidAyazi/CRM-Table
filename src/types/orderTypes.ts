@@ -17,4 +17,5 @@ export interface OrdersFilters {
   status: OrderStatus | "all";
   sort: SortOption;
   page: number;
+  pageSize: number
 }

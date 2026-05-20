@@ -26,8 +26,8 @@ export default function OrderTable({ orders, onEdit }: Props) {
     <div
       ref={ref}
       {...handlers}
-      className="w-full overflow-x-auto cursor-grab select-none rounded-lg border">
-      <div className="min-w-[900px]">
+      className="w-full overflow-x-auto select-none rounded-lg border">
+      <div className="min-w-[900px] cursor-grab active:cursor-grabbing lg:cursor-default">
         <table className="min-w-full table-fixed text-sm">
           <thead className="bg-gray-100 h-[60px]">
             <tr>

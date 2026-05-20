@@ -1,6 +1,10 @@
 import { useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import type { OrderStatus, OrdersFilters, SortOption } from "../types/orderTypes";
+import type {
+  OrderStatus,
+  OrdersFilters,
+  SortOption,
+} from "../types/orderTypes";
 
 export function useQueryParams() {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -12,6 +16,7 @@ export function useQueryParams() {
       status: (searchParams.get("status") as OrderStatus | "all") ?? "all",
       sort: (searchParams.get("sort") as SortOption) ?? "date_desc",
       page: Number(searchParams.get("page") ?? 1),
+      pageSize: Number(searchParams.get("pageSize")) || 10,
     };
   }, [searchParams]);
 
@@ -33,6 +38,10 @@ export function useQueryParams() {
 
     if (updates.page !== undefined) {
       next.set("page", String(updates.page));
+    }
+
+    if (updates.pageSize !== undefined) {
+      next.set("pageSize", String(updates.pageSize));
     }
 
     setSearchParams(next);

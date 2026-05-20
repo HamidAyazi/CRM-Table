@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import OrderTable from "../components/OrderTable";
 import SearchInput from "../components/SearchInput";
 import StatusFilter from "../components/StatusFilter";
@@ -23,8 +23,25 @@ export default function OrdersPage() {
     error,
   } = useOrders();
 
+  const handlePageSizeChange = useCallback(
+    (size: number) => {
+      const safeSize = Math.min(20, Math.max(1, size || 1));
+
+      setFilters({
+        pageSize: safeSize,
+        page: 1,
+      });
+    },
+    [setFilters],
+  );
+  
+  useEffect(() => {
+    console.log(filters);
+  }, [filters]);
+
   const [searchInput, setSearchInput] = useState(filters.search);
-  useEffect(() => { //adding debounce in search params
+  useEffect(() => {
+    //adding debounce in search params
     const t = setTimeout(() => {
       setFilters({
         search: searchInput,
@@ -76,7 +93,9 @@ export default function OrdersPage() {
               currentPage={filters.page}
               totalPages={totalPages}
               totalItems={totalItems}
+              pageSize={filters.pageSize}
               onPageChange={(page) => setFilters({ page })}
+              onPageSizeChange={handlePageSizeChange}
             />
           </>
         )}
