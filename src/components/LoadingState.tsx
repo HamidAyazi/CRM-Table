@@ -2,7 +2,8 @@ interface Props {
   rowNumber: number;
 }
 
-export default function OrderTableSkeleton({ rowNumber }: Props) {  // using skeleton for table based on table size
+// using skeleton for table based on table size
+export default function OrderTableSkeleton({ rowNumber }: Props) {
   return (
     <div className="overflow-x-auto rounded-lg border">
       <table className="min-w-full table-fixed text-sm" role="table">

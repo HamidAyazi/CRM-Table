@@ -23,8 +23,8 @@ export default function OrdersPage() {
     error,
   } = useOrders();
 
+  //update URL and filters to match user's prefered table size
   const handlePageSizeChange = useCallback(
-    //update URL and filters to match user's prefered table size
     (size: number) => {
       const safeSize = Math.min(20, Math.max(1, size || 1));
 
@@ -37,8 +37,9 @@ export default function OrdersPage() {
   );
 
   const [searchInput, setSearchInput] = useState(filters.search);
+  
+  //adding debounce in search params with 300ms delay
   useEffect(() => {
-    //adding debounce in search params with 300ms delay
     const t = setTimeout(() => {
       setFilters({
         search: searchInput,
@@ -54,7 +55,6 @@ export default function OrdersPage() {
     <main className="p-2 max-w-6xl m-4">
       <h1 className="text-2xl font-bold">مدیریت سفارش‌ها</h1>
 
-      {/* seach field */}
       <div className="mb-4 flex flex-col gap-3 md:flex-row md:items-center">
         <SearchInput value={searchInput} onChange={setSearchInput} />
 

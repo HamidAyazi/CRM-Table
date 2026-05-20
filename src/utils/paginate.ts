@@ -1,4 +1,5 @@
-export function paginate<T>(items: T[], page: number, pageSize: number): T[] { // show items based on pageSize and page number
+// show items based on pageSize and page number
+export function paginate<T>(items: T[], page: number, pageSize: number): T[] {
   const start = (page - 1) * pageSize;
   const end = start + pageSize;
 

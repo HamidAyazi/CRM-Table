@@ -5,18 +5,13 @@ interface Props {
   onChange: (value: OrderStatus | "all") => void;
 }
 
-export default function StatusFilter({
-  value,
-  onChange,
-}: Props) {
+export default function StatusFilter({ value, onChange }: Props) {
   return (
     <select
+      id="statusSelector"
       value={value}
-      onChange={(e) =>
-        onChange(e.target.value as OrderStatus | "all")
-      }
-      className="rounded-md border px-3 py-2 text-sm outline-none"
-    >
+      onChange={(e) => onChange(e.target.value as OrderStatus | "all")}
+      className="rounded-md border px-3 py-2 text-sm outline-none">
       <option value="all">همه وضعیت‌ها</option>
       <option value="completed">تکمیل شده</option>
       <option value="processing">در حال پردازش</option>

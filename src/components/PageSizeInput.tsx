@@ -8,6 +8,7 @@ export default function PageSizeInput({ pageSize, onChange }: Props) {
     <div className="flex items-center gap-2">
       <span>نمایش</span>
       <input
+        id="itemNumInput"
         type="number"
         min={1}
         max={20}

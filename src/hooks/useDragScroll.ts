@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
+// drag scroll hook to allow horizontal scrolling with mouse click
 export function useDragScroll<T extends HTMLElement>() {
-  // drag scroll hook to allow horizontal scrolling with mouse click
   const ref = useRef<T | null>(null);
 
   //drag states
@@ -9,8 +9,8 @@ export function useDragScroll<T extends HTMLElement>() {
   let startX = 0;
   let scrollLeft = 0;
 
+  // triggred when mouse button is down
   const onMouseDown = (e: React.MouseEvent) => {
-    // initialized when mouse button is down
     if (!ref.current) return;
 
     isDown = true;
@@ -20,18 +20,20 @@ export function useDragScroll<T extends HTMLElement>() {
     scrollLeft = ref.current.scrollLeft; // triggered scroll position
   };
 
-  const onMouseLeave = () => { // triggred when mouse leaves element
+  // triggred when mouse leaves element
+  const onMouseLeave = () => {
     isDown = false;
     if (ref.current) ref.current.style.cursor = "grab";
   };
 
+  // triggered when mouse button is up
   const onMouseUp = () => {
-    // triggered when mouse button is up
     isDown = false;
     if (ref.current) ref.current.style.cursor = "grab";
   };
 
-  const onMouseMove = (e: React.MouseEvent) => { // calculate and scroll the element based on mouse movement
+  // calculate and scroll the element based on mouse movement
+  const onMouseMove = (e: React.MouseEvent) => {
     if (!isDown || !ref.current) return;
 
     e.preventDefault();

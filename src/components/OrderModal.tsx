@@ -26,7 +26,8 @@ const statuses: OrderStatus[] = [
   "pending",
   "cancelled",
 ];
-const statusMap = { // map statuses to Farsi labels
+// map statuses to Farsi labels
+const statusMap = {
   pending: "در انتظار",
   processing: "در حال پردازش",
   completed: "تکمیل شده",
@@ -34,8 +35,8 @@ const statusMap = { // map statuses to Farsi labels
 };
 
 export default function OrderModal({ order, onClose, onSave }: Props) {
+  //close modal on Escape key press
   useEffect(() => {
-    //close modal on Escape key press
     const handler = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };

@@ -5,7 +5,6 @@ import { processOrders } from "../utils/processOrders";
 import { useQueryParams } from "./useQueryParams";
 import type { OrderStatus, Order } from "../types/orderTypes";
 
-
 export function useOrders() {
   const { filters, setFilters } = useQueryParams();
   const [ordersData, setOrdersData] = useState<Order[]>([]);
@@ -39,7 +38,8 @@ export function useOrders() {
 
   const totalPages = Math.ceil(processedOrders.length / filters.pageSize);
 
-  const updateOrderStatus = (orderId: string, status: OrderStatus) => { // update order status
+  const updateOrderStatus = (orderId: string, status: OrderStatus) => {
+    // update order status
     setOrdersData((prev) =>
       prev.map((order) =>
         order.id === orderId ? { ...order, status } : order,
@@ -55,6 +55,6 @@ export function useOrders() {
     totalItems: processedOrders.length,
     updateOrderStatus,
     loading,
-    error
+    error,
   };
 }
