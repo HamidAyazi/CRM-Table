@@ -1,73 +1,135 @@
-# React + TypeScript + Vite
+# Orders Management Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive and interactive orders management dashboard built with **React, TypeScript, Vite, and Tailwind CSS**.  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+### Order Management
+- Displays a list of orders in a responsive table
+- works with mock data (no backend was implmented)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Search
+- Search orders by:
+  - Customer name
+  - Order ID
+- Handles partial matching and normalization
+- Handles both Farsi and English numbers
 
-## Expanding the ESLint configuration
+### Filtering
+- Filter orders by status:
+  - Pending
+  - Processing
+  - Completed
+  - Cancelled
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Sorting
+- Sort orders by creation date, ascending or descending
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Pagination
+- Page-based navigation
+- Dynamic page size control
+- Total item count display
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### URL Sync
+- Filters, pagination, and page size are synced with URL query params
+- State is updated on page load
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Order Update Modal
+- Change order status via modal dialog (mock data stored as state since backend is not connected)
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### UI States
+- Loading state (skeleton table, matches number of data per page when loading)
+- Empty state (no results)
+- Error state handling
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tech Stack
+
+- React 18
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+
+---
+
+## Architecture Overview
+
+### Folder Structure
+- `components/` Reusable UI components
+- `hooks/` logic and state management
+- `utils/` Pure helper functions (filtering, pagination, text sanitizing etc.)
+- `data/` → Mock data source
+- `types/` → TypeScript type definitions
+- `pages/` → Page-level components
+
+---
+
+### State Management Strategy
+- Centralized filter state in `useOrders` hook
+- Derived data (filtered + paginated orders)
+- URL query parameters used as a source of truth for filters
+- Mock data stored in state to manage updating the data localy
+
+---
+
+### URL State Sync
+The following states are persisted in URL:
+- page number
+- page size
+- filters (status, search, sort)
+
+This allows:
+- shareable URLs
+- persistence after refresh
+- better UX consistency
+
+---
+
+##  Trade-offs
+
+- No backend integration (uses mock data)
+- No infinite scroll (pagination used instead)
+- Simplified validation for input fields
+
+These decisions were made to focus on **frontend logic, state management, and UI architecture**.
+
+---
+
+## Edge Cases Handled
+
+- Empty search results
+- Invalid page numbers from URL
+- Page size limits (min 1/max 20)
+- Combined filter interactions
+- Pagination reset to page 1 on filter change
+- Skeleton loading consistency with page size
+- Farsi numbers masked to English letters
+- Debounced search input to prevent multiple queries
+- Prevented layout shift when loading data after skeleton
+- Drag component for table in smaller screen size
+
+---
+
+## Possible Improvements
+
+If extended further, the project could include:
+
+- Backend API integration
+- React Query for caching
+- Virtualized table for large datasets
+- Unit + integration tests for hooks and utils
+- Keyboard navigation for table and modal
+- Accessibility improvements
+
+
+---
+
+## How to Run
+
+```bash
+npm install
+npm run dev
