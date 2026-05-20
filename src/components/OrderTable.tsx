@@ -75,7 +75,7 @@ export default function OrderTable({ orders, onEdit }: Props) {
 
                 <td className="px-4 py-3">
                   <span
-                    className={`rounded-full px-2 py-1 text-xs ${statusStyles[order.status]}`}>
+                    className={`block w-full rounded-full px-2 py-1 text-xs ${statusStyles[order.status]}`}>
                     {statusMap[order.status]}
                   </span>
                 </td>
