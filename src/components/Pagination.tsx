@@ -9,7 +9,7 @@ interface Props {
   onPageSizeChange: (size: number) => void;
 }
 
-function getPages(current: number, total: number) {
+function getPages(current: number, total: number) { // set the array of pages to use as buttons or ...
   const delta = 1;
   const pages: (number | "...")[] = [];
 

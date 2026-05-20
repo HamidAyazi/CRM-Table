@@ -3,7 +3,7 @@ interface Props {
   message?: string;
 }
 
-export default function ErrorState({
+export default function ErrorState({ // show error message or default Error
   message = "خطایی رخ داده است",
 }: Props) {
   return (

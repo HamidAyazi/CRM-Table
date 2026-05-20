@@ -12,7 +12,7 @@ export function useOrders() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  //simulate fetching data
+  //simulate fetching data since we are using mock data
   useEffect(() => {
     const timer = setTimeout(() => {
       try {
@@ -27,19 +27,19 @@ export function useOrders() {
     return () => clearTimeout(timer);
   }, []);
 
-  // filter and sort
+  // applying filters and sorts on data
   const processedOrders = useMemo(() => {
     return processOrders(ordersData, filters);
   }, [ordersData, filters]);
 
-  // paginate
+  // paginating filtered data
   const paginatedOrders = useMemo(() => {
     return paginate(processedOrders, filters.page, filters.pageSize);
   }, [processedOrders, filters.page]);
 
   const totalPages = Math.ceil(processedOrders.length / filters.pageSize);
 
-  const updateOrderStatus = (orderId: string, status: OrderStatus) => {
+  const updateOrderStatus = (orderId: string, status: OrderStatus) => { // update order status
     setOrdersData((prev) =>
       prev.map((order) =>
         order.id === orderId ? { ...order, status } : order,

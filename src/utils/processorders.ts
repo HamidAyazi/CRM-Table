@@ -11,8 +11,8 @@ export function processOrders(
   if (filters.search.trim()) {
     const search = normalizeText(filters.search);
     result = result.filter((o) => {
-      const id = normalizeText(o.id);
-      const name = normalizeText(o.customerName);
+      const id = normalizeText(o.id); // normalize text to match both Farsi and English numbers
+      const name = normalizeText(o.customerName); // normalize text via toLowerCase
       return id.includes(search) || name.includes(search);
     });
   }

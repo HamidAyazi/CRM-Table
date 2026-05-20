@@ -24,6 +24,7 @@ export default function OrdersPage() {
   } = useOrders();
 
   const handlePageSizeChange = useCallback(
+    //update URL and filters to match user's prefered table size
     (size: number) => {
       const safeSize = Math.min(20, Math.max(1, size || 1));
 
@@ -34,14 +35,10 @@ export default function OrdersPage() {
     },
     [setFilters],
   );
-  
-  useEffect(() => {
-    console.log(filters);
-  }, [filters]);
 
   const [searchInput, setSearchInput] = useState(filters.search);
   useEffect(() => {
-    //adding debounce in search params
+    //adding debounce in search params with 300ms delay
     const t = setTimeout(() => {
       setFilters({
         search: searchInput,
@@ -51,7 +48,8 @@ export default function OrdersPage() {
 
     return () => clearTimeout(t);
   }, [searchInput]);
-  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null);
+
+  const [selectedOrder, setSelectedOrder] = useState<Order | null>(null); // selected Order for Modal component
   return (
     <main className="p-2 max-w-6xl m-4">
       <h1 className="text-2xl font-bold">مدیریت سفارش‌ها</h1>
@@ -81,7 +79,7 @@ export default function OrdersPage() {
       </div>
       <div className="min-w-[400px]">
         {loading ? (
-          <LoadingState />
+          <LoadingState rowNumber={filters.pageSize} />
         ) : error ? (
           <ErrorState message={error} />
         ) : orders.length === 0 ? (
@@ -89,6 +87,7 @@ export default function OrdersPage() {
         ) : (
           <>
             <OrderTable orders={orders} onEdit={setSelectedOrder} />
+
             <Pagination
               currentPage={filters.page}
               totalPages={totalPages}
@@ -100,6 +99,7 @@ export default function OrdersPage() {
           </>
         )}
       </div>
+
       <OrderModal
         order={selectedOrder}
         onClose={() => setSelectedOrder(null)}

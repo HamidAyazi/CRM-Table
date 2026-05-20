@@ -26,7 +26,7 @@ const statuses: OrderStatus[] = [
   "pending",
   "cancelled",
 ];
-const statusMap = {
+const statusMap = { // map statuses to Farsi labels
   pending: "در انتظار",
   processing: "در حال پردازش",
   completed: "تکمیل شده",
