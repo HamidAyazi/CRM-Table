@@ -114,20 +114,6 @@ These decisions were made to focus on **frontend logic, state management, and UI
 
 ---
 
-## Possible Improvements
-
-If extended further, the project could include:
-
-- Backend API integration
-- React Query for caching
-- Virtualized table for large datasets
-- Unit + integration tests for hooks and utils
-- Keyboard navigation for table and modal
-- Accessibility improvements
-
-
----
-
 ## How to Run
 
 ```bash
